@@ -1,0 +1,14 @@
+nav.main_navbar {
+  background-color: #7f00ff;
+}
+nav a {
+  color: #fcfcfc;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a.navbar-brand {
+  font-size: 30px;
+  font-family: bold;
+  color: #fcfcfc;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

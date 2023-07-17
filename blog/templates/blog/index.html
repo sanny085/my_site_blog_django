@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block page_css%}
+<link rel="stylesheet" href="{% static 'blog/include/header.css'%}">
+<link rel="stylesheet" href="{% static 'blog/index.css'%}">
+{% endblock%}
+
+<!-- {% block css_file %}
+<link rel="stylesheet" href="{% static 'challenge/challenge.css'%}">
+<link rel="stylesheet" href="{% static 'challenge/includes/header.css'%}">
+{% endblock %} -->
+
+
+
+{% block page_title %}Blog{% endblock %}
+
+{% block content%}
+
+<!-- Header -->
+{% include 'blog/include/header.html'%}
+
+<!-- Hero Section -->
+<header class="hero">
+    <div class="container text-center">
+        <img src="https://t3.ftcdn.net/jpg/01/23/70/92/360_F_123709226_ocZ8yS8i8kZhYiHLwuKSfdPfq4NopbZU.jpg"
+            alt="Hero Image" class="img-fluid">
+        <h1>Random Text</h1>
+    </div>
+</header>
+
+
+<!-- Card Section -->
+<section class="card-section">
+    <div class="container">
+        <h2 class="latest-thought">My Latest Thoughts</h2>
+        <div class="row">
+            {% for news in all_news %}
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{news.img_url}}" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{news.title}}</h5>
+                        <p class="card-text">{{news.description}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock%}
