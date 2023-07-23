@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ current_post.title }} | Title{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'blog/post-detail.css' %}" />
+{% endblock %}
+
+
+
+{% block content%}
+<section id="summary">
+    <h2>{{ current_post.title }}</h2>
+    <article>
+        <img src="{% static 'blog/images/'|add:current_post.image %}" alt="{{ post.title }}">
+        <address>{{ current_post.author }}</address>
+        <div>Last Updated on <time>{{ current_post.date|date:"SHORT_DATE_FORMAT" }}</time></div>
+    </article>
+
+</section>
+<main>
+    {{current_post.content | linebreaks}}
+</main>
+
+{% endblock%}

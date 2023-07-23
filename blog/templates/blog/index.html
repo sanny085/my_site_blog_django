@@ -2,54 +2,47 @@
 {% load static %}
 
 
+{% block title %}My Blog{% endblock %}
 
-{% block page_css%}
-<link rel="stylesheet" href="{% static 'blog/include/header.css'%}">
-<link rel="stylesheet" href="{% static 'blog/index.css'%}">
-{% endblock%}
-
-<!-- {% block css_file %}
-<link rel="stylesheet" href="{% static 'challenge/challenge.css'%}">
-<link rel="stylesheet" href="{% static 'challenge/includes/header.css'%}">
-{% endblock %} -->
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}" />
+<link rel="stylesheet" href="{% static 'blog/index.css' %}" />
+{% endblock %}
 
 
-
-{% block page_title %}Blog{% endblock %}
 
 {% block content%}
 
-<!-- Header -->
-{% include 'blog/include/header.html'%}
 
-<!-- Hero Section -->
-<header class="hero">
-    <div class="container text-center">
-        <img src="https://t3.ftcdn.net/jpg/01/23/70/92/360_F_123709226_ocZ8yS8i8kZhYiHLwuKSfdPfq4NopbZU.jpg"
-            alt="Hero Image" class="img-fluid">
-        <h1>Random Text</h1>
-    </div>
-</header>
-
-
-<!-- Card Section -->
-<section class="card-section">
-    <div class="container">
-        <h2 class="latest-thought">My Latest Thoughts</h2>
-        <div class="row">
-            {% for news in all_news %}
-            <div class="col-lg-4">
-                <div class="card">
-                    <img src="{{news.img_url}}" class="card-img-top" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title">{{news.title}}</h5>
-                        <p class="card-text">{{news.description}}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/sanny.jpeg' %}" alt="Max - The Author Of This Blog" />
+        <h2>Sanny'S BLOG</h2>
+    </header>
+    <p>Hi, I am Sanny and I love to blog about tech and the world!</p>
 </section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul>
+        {% for post in latest_post %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do</h2>
+    <p>
+        I love programming, I love to help others and I enjoy exploring new
+        technologies in general!
+    </p>
+    <p>
+        My goal is to keep on growing as a developer - and if I could help you do
+        the same, I'd be very happy!
+    </p>
+</section>
+
 
 {% endblock%}
